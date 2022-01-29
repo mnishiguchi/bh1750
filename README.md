@@ -1,20 +1,34 @@
 # BH1750
 
-**TODO: Add description**
+Use BH1750 16-bit ambient light sensor in Elixir.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `bh1750` to your list of dependencies in `mix.exs`:
+Add `bh1750` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:bh1750, "~> 0.1.0"}
+    {:bh1750, "~> 0.1"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/bh1750>.
+## Usage
+### I2C address
+
+I2C address can be either `0x23` (default) or `0x5C`.
+
+### Initialize the sensor
+
+```elixir
+sensor = BH1750.new
+```
+
+### Measure the ambient light
+
+```elixir
+{:ok, lux} = BH1750.measure(sensor)
+```
+
+For more information, see [documentation](https://hexdocs.pm/bh1750).

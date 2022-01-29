@@ -21,10 +21,17 @@ defmodule BH1750 do
     field(:transport, BH1750.Transport.t(), enforce: true)
   end
 
+  @type opts() :: [
+          bus_name: binary,
+          address: 0x23 | 0x5C,
+          mode: BH1750.Config.mode(),
+          resolution: BH1750.Config.resolution()
+        ]
+
   @doc """
   Instantiates a BH1750 sensor.
   """
-  @spec new(keyword | map) :: BH1750.t()
+  @spec new(opts) :: BH1750.t()
   def new(opts \\ []) do
     bus_name = Access.get(opts, :bus_name, @default_bus_name)
     address = Access.get(opts, :address, @default_address)

@@ -1,11 +1,11 @@
 defmodule BH1750.Transport do
-  @moduledoc false
+  @moduledoc """
+  The I2C transport to communiate with a device.
+  """
 
   use TypedStruct
 
   typedstruct do
-    @typedoc "The I2C transport to communiate with a device"
-
     field(:address, 0..127, enforce: true)
     field(:read_fn, fun, enforce: true)
     field(:ref, reference, enforce: true)
@@ -31,7 +31,7 @@ defmodule BH1750.Transport do
   end
 
   @spec open_i2c!(binary) :: reference
-  def open_i2c!(bus_name) do
+  defp open_i2c!(bus_name) do
     {:ok, ref} = Circuits.I2C.open(bus_name)
     ref
   end
