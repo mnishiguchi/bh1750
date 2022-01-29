@@ -25,7 +25,8 @@ defmodule BH1750.MixProject do
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.28", only: :docs, runtime: false},
-      {:mix_test_watch, "~> 1.1", only: :dev, runtime: false}
+      {:mix_test_watch, "~> 1.1", only: :dev, runtime: false},
+      {:typed_struct, "~> 0.2.1"}
     ]
   end
 end
