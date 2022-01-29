@@ -35,4 +35,4 @@ sensor = BH1750.new
 {:ok, lux} = BH1750.measure(sensor)
 ```
 
-For more information, see [documentation](https://hexdocs.pm/bh1750).
+For more information, see [API reference](https://hexdocs.pm/bh1750/api-reference.html).
