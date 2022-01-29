@@ -1,5 +1,9 @@
 # BH1750
 
+[![Hex version](https://img.shields.io/hexpm/v/bh1750.svg 'Hex version')](https://hex.pm/packages/bh1750)
+[![API docs](https://img.shields.io/hexpm/v/bh1750.svg?label=docs 'API docs')](https://hexdocs.pm/bh1750)
+[![CI](https://github.com/mnishiguchi/bh1750/actions/workflows/ci.yml/badge.svg)](https://github.com/mnishiguchi/bh1750/actions/workflows/ci.yml)
+
 Use BH1750 16-bit ambient light sensor in Elixir.
 
 ## Installation

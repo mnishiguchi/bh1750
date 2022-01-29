@@ -10,7 +10,7 @@ defmodule BH1750 do
 
   @cmd_power_down 0b0000_0000
 
-  @type lux :: 0..65535
+  @type lux :: 0..65_535
 
   use TypedStruct
 
