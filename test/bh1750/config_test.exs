@@ -4,7 +4,7 @@ defmodule BH1750.ConfigTest do
   test "new/1" do
     assert BH1750.Config.new(:continuous, :high) ==
              %BH1750.Config{
-               measurement_time: 180,
+               measurement_time_ms: 180,
                mode: :continuous,
                opcode: 16,
                resolution: :high

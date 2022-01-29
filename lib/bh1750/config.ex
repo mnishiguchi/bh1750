@@ -9,7 +9,7 @@ defmodule BH1750.Config do
   @type resolution :: :high | :high2 | :low
 
   typedstruct do
-    field(:measurement_time, non_neg_integer, enforce: true)
+    field(:measurement_time_ms, non_neg_integer, enforce: true)
     field(:mode, mode, enforce: true)
     field(:opcode, byte, enforce: true)
     field(:resolution, resolution, enforce: true)
@@ -19,7 +19,7 @@ defmodule BH1750.Config do
   def new(mode, resolution) do
     %__MODULE__{
       mode: mode,
-      measurement_time: measurement_time(resolution),
+      measurement_time_ms: measurement_time_ms(resolution),
       opcode: opcode(mode, resolution),
       resolution: resolution
     }
@@ -33,8 +33,8 @@ defmodule BH1750.Config do
   defp opcode(:one_time, :high2), do: 0b0010_0001
   defp opcode(:one_time, :low), do: 0b0010_0011
 
-  @spec measurement_time(resolution) :: 24 | 180
-  defp measurement_time(:high), do: 180
-  defp measurement_time(:high2), do: 180
-  defp measurement_time(:low), do: 24
+  @spec measurement_time_ms(resolution) :: 24 | 180
+  defp measurement_time_ms(:high), do: 180
+  defp measurement_time_ms(:high2), do: 180
+  defp measurement_time_ms(:low), do: 24
 end

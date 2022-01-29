@@ -59,7 +59,7 @@ defmodule BH1750 do
   @spec measure(BH1750.t()) :: {:ok, lux} | {:error, any}
   def measure(%__MODULE__{config: config, transport: transport}) do
     with :ok <- transport.write_fn.([config.opcode]),
-         :ok <- Process.sleep(config.measurement_time),
+         :ok <- Process.sleep(config.measurement_time_ms),
          {:ok, <<msb, lsb>>} <- transport.write_read_fn.([config.opcode], 2) do
       {:ok, BH1750.Calc.raw_to_lux(<<msb, lsb>>)}
     end
