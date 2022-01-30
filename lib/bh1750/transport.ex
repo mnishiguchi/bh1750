@@ -14,7 +14,7 @@ defmodule BH1750.Transport do
   end
 
   @spec new(reference, 0..127) :: BH1750.Transport.t()
-  def new(ref, address) when is_reference(ref) do
+  def new(ref, address) when is_reference(ref) and is_integer(address) do
     %__MODULE__{
       ref: ref,
       address: address,
@@ -24,8 +24,8 @@ defmodule BH1750.Transport do
     }
   end
 
-  @spec new(reference, binary()) :: BH1750.Transport.t()
-  def new(bus_name, address) do
+  @spec new(binary(), 0..127) :: BH1750.Transport.t()
+  def new(bus_name, address) when is_binary(bus_name) and is_integer(address) do
     ref = open_i2c!(bus_name)
     new(ref, address)
   end
