@@ -1,16 +1,14 @@
 defmodule BH1750.Transport do
-  @moduledoc """
-  The I2C transport to communiate with a device.
-  """
+  @moduledoc false
 
   use TypedStruct
 
   typedstruct do
     field(:address, 0..127, enforce: true)
-    field(:read_fn, fun, enforce: true)
+    field(:read_fn, (pos_integer -> {:ok, binary} | {:error, any}), enforce: true)
     field(:ref, reference, enforce: true)
-    field(:write_fn, fun, enforce: true)
-    field(:write_read_fn, fun, enforce: true)
+    field(:write_fn, (iodata -> :ok | {:error, any}), enforce: true)
+    field(:write_read_fn, (iodata, pos_integer -> {:ok, binary} | {:error, any}), enforce: true)
   end
 
   @spec new(reference, 0..127) :: BH1750.Transport.t()
@@ -24,7 +22,7 @@ defmodule BH1750.Transport do
     }
   end
 
-  @spec new(binary(), 0..127) :: BH1750.Transport.t()
+  @spec new(binary, 0..127) :: BH1750.Transport.t()
   def new(bus_name, address) when is_binary(bus_name) and is_integer(address) do
     ref = open_i2c!(bus_name)
     new(ref, address)
