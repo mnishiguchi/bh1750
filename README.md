@@ -13,7 +13,7 @@ Add `bh1750` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:bh1750, "~> 0.1"}
+    {:bh1750, "~> 0.2"}
   ]
 end
 ```
@@ -23,10 +23,10 @@ end
 
 I2C address can be either `0x23` (default) or `0x5C`.
 
-### Initialize the sensor
+### Start a sensor server
 
 ```elixir
-sensor = BH1750.new
+{:ok, sensor} = BH1750.start_link
 ```
 
 ### Measure the ambient light

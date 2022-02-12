@@ -1,7 +1,7 @@
 defmodule BH1750.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.2.0"
   @source_url "https://github.com/mnishiguchi/bh1750"
   @description "Use BH1750 16-bit ambient light sensor in Elixir"
 

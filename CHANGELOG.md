@@ -7,10 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-02-12
+
+**Changed**
+
+- Wrap the sensor logic in a gen server
+
 ## [0.1.0] - 2022-01-29
 
 Initial release
 
-[Unreleased]: https://github.com/mnishiguchi/bh1750/compare/v0.1.0...HEAD
-
+[Unreleased]: https://github.com/mnishiguchi/bh1750/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/mnishiguchi/bh1750/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/mnishiguchi/bh1750/releases/tag/v0.1.0
