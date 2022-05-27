@@ -1,7 +1,9 @@
 defmodule BH1750 do
-  @moduledoc """
-  Use BH1750 16-bit ambient light sensor in Elixir.
-  """
+  @moduledoc File.read!(Path.expand("./README.md"))
+             |> String.split("<!-- README START -->")
+             |> Enum.at(1)
+             |> String.split("<!-- README END -->")
+             |> Enum.at(0)
 
   use GenServer
 
